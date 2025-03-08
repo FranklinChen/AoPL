@@ -4,7 +4,7 @@ module Base where
 import Prelude hiding (catch)
 import Control.Exception
 import System.Environment
-import Data.Text hiding (zip, tail, dropWhile, concat, length, head)
+import Data.Text hiding (zip, tail, dropWhile, concat, length, head, show)
 
 check msg a b = putStrLn (if a == b then "OK" else "*** CHECK " ++ msg ++ " Failed ***")
 
