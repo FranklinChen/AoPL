@@ -4155,7 +4155,7 @@ functions:
 +------------------------+--------------------------------+
 | $id(x) = x$            | all values are fixed points    |
 +------------------------+--------------------------------+
-| $inc(x) = x + 1$       | no fixed points         |
+| $inc(x) = x + 1$       | no fixed points                |
 +------------------------+--------------------------------+
 
 As you can see, some functions have one fixed point.
