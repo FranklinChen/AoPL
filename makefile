@@ -2,7 +2,7 @@
 
 .PHONY: verb pretty update clean
 
-PANDOC := pandoc --wrap=none -N --atx-headers 
+PANDOC := pandoc --wrap=none -N
 HSCOLOUR := hscolour -lit
 
 TESTS=SimpleTest.hs \
@@ -153,7 +153,7 @@ anatomy.htm: anatomy.mkd makefile
 		> foo.mkd
   # process markdown+lhs to html
 	cat foo.mkd \
-		| $(PANDOC) -H header.htm --toc -f markdown+lhs -t html --css anatomy.css --filter pandoc-citeproc --top-level-division=chapter \
+		| $(PANDOC) -H header.htm --toc -f markdown+lhs -t html --css anatomy.css --citeproc --top-level-division=chapter \
 		| sed 's/\.eps/.png/' \
 		> foo2.mkd
   # fix problems in HTML
@@ -184,7 +184,7 @@ temp.lhs: anatomy.mkd template.tex
 		| sed "s/@/ATSIGN/g" \
 		> foo.lhs
 	cat foo.lhs \
-		| $(PANDOC) -f markdown+lhs -t latex+lhs --template=template.tex -V documentclass=report  --filter pandoc-citeproc --top-level-division=chapter \
+		| $(PANDOC) -f markdown+lhs -t latex+lhs --template=template.tex -V documentclass=report  --citeproc --top-level-division=chapter \
 		> foo2.lhs
 	cat foo2.lhs \
 		| sed "s/{verbatim}/{spec}/g" \
